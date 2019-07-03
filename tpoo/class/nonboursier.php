@@ -3,9 +3,9 @@ require 'etudiant.php';
 
 class nonboursier extends etudiant{
     private $adresse;
-    public function __construct( $matricule, $nom="",$prenom="", $mail="", $telephone="",$date_de_naissance=0,$adresse=""){
+    public function __construct( $matricule="", $nom="",$prenom="", $mail="", $telephone="",$date_de_naissance=0,$adresse=""){
          
-        parent:: __construct($matricule, $nom,$prenom,$mail,$telephone,$date_de_naissance);
+        parent:: __construct($matricule, $nom,$prenom,$date_de_naissance,$telephone,$mail);
         $this ->adresse=$adresse;
     }
 

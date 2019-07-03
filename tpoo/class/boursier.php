@@ -1,33 +1,34 @@
 <?php
 class boursier extends etudiant{
-    private $type;
-    public function __construct ( $nom="", $prenom="", $mail="", $telephone="", $date_de_naissance=0,$type=""){
-    parent:: __construct($nom,$prenom,$mail,$telephone,$date_de_naissance);
-        $this ->type=$type;
+    private $id_pension;
+    public function __construct ($matricule="",$nom="", $prenom="", $date_de_naissance=0, $telephone="", $mail="", $id_pension=""){
+    parent:: __construct($matricule,$nom,$prenom,$date_de_naissance,$telephone,$mail);
+       
     
     }
 
     
-/*  */
-        /**
-         * Get the value of type
-         */ 
-        public function getType()
-        {
-                return $this->type;
-        }
 
-        /**
-         * Set the value of type
-         *
-         * @return  self
-         */ 
-        public function setType($type)
-        {
-                $this->type = $type;
 
-                return $this;
-        }
+    /**
+     * Get the value of id_pension
+     */ 
+    public function getId_pension()
+    {
+        return $this->id_pension;
+    }
+
+    /**
+     * Set the value of id_pension
+     *
+     * @return  self
+     */ 
+    public function setId_pension($id_pension)
+    {
+        $this->id_pension = $id_pension;
+
+        return $this;
+    }
 }
 
 

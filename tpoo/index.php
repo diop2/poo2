@@ -7,14 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
+
+<?php
+
     require 'class/Autoloader.php';
     Autoloader::register();
     $auto = new EtudiantService();
     ?>
-    <form  action="class/traitement.php"  method="POST">
+    <form method="POST" action="class/traitement.php"  >
     <input id="" name="matricule" type="text" placeholder="matricule" /> <br>
-<br>
+<br> 
 <input id="" name="nom" type="text" placeholder="nom" /> <br>
 <br>
 <input id="" name="prenom" type="text" placeholder="prenom" /> <br>
@@ -25,37 +27,37 @@
 <br> 
 <input id="" name="mail" type="text" placeholder="mail" /> <br>
 <br> 
+<div>
+<select name="boursier" id="">
+    <?php
+      $ob = new EtudiantService();
+      $res = $pdo->prepare($requete);
+				$ajouter = $res ->execute();
+      foreach($ob->findAll('pension') as $type){
+        echo '<option value=$type->id_pension> $type->type</option>';
+      }
+    ?>
+  </select> 
+  </div>
+  <div>
+  <br>
+  <br>
+  <select name="loger" id="">
+    <optgroup name = "loger">
+        <option value="demi"> demi</option>
+        <option value="entière">entière</option>
+    </optgroup>
+      
+  </select> 
+  </div>
+  <br>
+  <br>
 <input id="" name="adresse" type="text" placeholder="adresse" /> <br>
-<br> 
- 
-  <select name="bourse" id="">
-    <optgroup name = "bourse">
-        <option value="boursier"> boursier</option>
-        <option value="non_boursier">non boursier</option>
-    </optgroup>
-  </select>
-  <br>
-  <br>
-  <select name="typte" id="">
-    <optgroup name = "type de bourse">
-        <option value="entière"> bourse entière</option>
-        <option value="demie">demie bourse</option>
-    </optgroup>
-  </select>
-  <br>
-  <br>
-  <select name="logement" id="">
-    <optgroup name = "logement">
-        <option value="oui"> loger </option>
-        <option value="non ">non loger</option>
-    </optgroup>
-  </select>
   <br>
   <br>  
 <input id="" type="submit" value="Ajouter" name="Ajouter" />
 </form>
 <br>
-
 
 </body>
 </html>
